@@ -18,10 +18,13 @@
       "script/background.js"
     ]
   },
+  "page_action": {
+    "default_title": "Google Mail"
+  },
   "content_scripts": [
     {
       "matches": [
-        "https://www.youtube.com/copyright_complaint_form"
+        "https://www.youtube.com/copyright_complaint_form?target=*"
       ],
       "css": [
         "style/content-complaint.css"
@@ -32,7 +35,7 @@
     },
     {
       "matches": [
-        "https://www.youtube.com/watch/*"
+        "https://www.youtube.com/watch*"
       ],
       "css": [
         "style/content-youtube.css"

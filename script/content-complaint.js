@@ -117,6 +117,14 @@ let actions = [
     action: 'fill',
     value: '',
     optionKey: 'requester_name'
+  },
+  {
+    label: 'Target',
+    querySelector: '#video_url_0',
+    action: 'fill',
+    value: function () {
+      return getParameterByName('target')
+    }
   }
 ]
 loadOptions().then((options) => {
@@ -145,7 +153,7 @@ function loadOptions () {
     },
     address2: {
       label: 'Quận/huyện',
-      value: '3'
+      value: ''
     },
     city: {
       label: 'Thành phố',
@@ -174,7 +182,7 @@ function loadOptions () {
 function fillForm (options) {
   actions.forEach(action => {
     let $el = document.querySelector(action.querySelector)
-    let value = action.value
+    let value = typeof action.value === 'function' ? action.value.call() : action.value
     if (action.hasOwnProperty('optionKey')) {
       value = options[action.optionKey].value
       console.log(action.optionKey, value)
@@ -195,4 +203,14 @@ function fillForm (options) {
         break
     }
   })
+}
+
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)")
+  let results = regex.exec(url)
+  if (!results) return null
+  if (!results[2]) return ''
+  return decodeURIComponent(results[2].replace(/\+/g, " "))
 }

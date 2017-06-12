@@ -1,0 +1,13 @@
+.complaint-button{
+    float: right;
+    margin-left: 10px;
+    border: 1px solid #ccc !important;
+    background-color: #f8f8f8 !important;
+    margin-top: 2px;
+    transition: all .5s;
+}
+.complaint-button:hover{
+    background-color: #e62117 !important;
+    border: 1px solid #c6241c !important;
+    color: #f8f8f8 !important;
+}

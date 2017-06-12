@@ -56,14 +56,14 @@ new Vue({
         setTimeout(() => {
           this.message = ''
         }, 3000)
-      });
+      })
     },
     loadOptions () {
       this.message = 'Loading your settings...'
       chrome.storage.sync.get(this.fields, (options) => {
         this.fields = options
         this.message = ''
-      });
+      })
     }
   }
 })
