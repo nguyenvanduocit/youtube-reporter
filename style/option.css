@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+.field-group + .field-group{
+    margin-top: 10px;
+}
+.field-group label{
+    display: block;
+    margin-bottom: 5px;
+}
+.field-group input{
+    width:100%;
+}
+
+.form-footer{
+    margin-top: 20px;
+}
+.loading{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(160, 160, 160, 0.83);
+    font-size: 20px;
+
+}

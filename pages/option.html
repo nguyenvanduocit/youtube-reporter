@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Youtube Reporter Options</title>
+    <link rel="stylesheet" href="../style/option.css">
+</head>
+<body>
+<div id="app"></div>
+<template id="app-template">
+    <div class="main">
+        <div v-if="isLoading" class="loading">
+            <span v-text="message"></span>
+        </div>
+        <div class="form">
+            <div class="field-group" v-for="(field, key) in fields" :key="key">
+                <label v-text="field.label" :for="key"></label>
+                <input :id="key" type="text" v-model="field.value" />
+            </div>
+            <div class="form-footer">
+                <button @click.prevent="save">Save your data</button>
+            </div>
+        </div>
+    </div>
+</template>
+<script src="../vendor/vue/vue.min.js"></script>
+<script src="../script/option.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{
+  // Required
+  "manifest_version": 2,
+  "name": "Youtube Reporter",
+  "version": "0.9.0",
+  "description": "Extension này sẽ giúp huynh đệ report các video vi phạm bản quyền của Sư Phụ một cách nhanh chóng và hiệu quả.",
+  "icons": {
+    "16": "image/icons/16x15.png",
+    "48": "image/icons/48x45.png",
+    "128": "image/icons/128x121.png",
+    "256": "image/icons/256x242.png",
+    "512": "image/icons/512x485.png"
+  },
+  "author": "Nguyễn Văn Được <Thiện Bửu Khiết>",
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "script/background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/copyright_complaint_form"
+      ],
+      "css": [
+        "style/content-complaint.css"
+      ],
+      "js": [
+        "script/content-complaint.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/watch/*"
+      ],
+      "css": [
+        "style/content-youtube.css"
+      ],
+      "js": [
+        "script/content-youtube.js"
+      ]
+    }
+  ],
+  "options_ui": {
+    "page": "pages/option.html",
+    "chrome_style": true
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "unlimitedStorage",
+    "notifications",
+    "storage",
+    "*://www.youtube.com/*"
+  ],
+  "web_accessible_resources": [
+    "image/*"
+  ]
+}
